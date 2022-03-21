@@ -19,7 +19,7 @@ $RequestTokenBody = @{
     Client_Secret = $clientSecret
 }
 
-$TokenResponce = Invoke-RestMethod -Uri "https://login/microsoftonline.com/$tenantName/oauth2/v2.0/token" -Method Post -Body $ReqTokenBody
+$TokenResponce = Invoke-RestMethod -Uri "https://login/microsoftonline.com/$tenantName/oauth2/v2.0/token" -Method Post -Body $RequestTokenBody
 
 $TokenResponce
 
