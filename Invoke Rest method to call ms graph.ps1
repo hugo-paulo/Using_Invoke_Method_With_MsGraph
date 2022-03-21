@@ -47,3 +47,28 @@ $CreateUserBody = @"
 
 #!note the @" "@ needs to be on different lines
 
+$userBody = @"
+{
+  "accountEnabled": true,
+  "displayName": "Philippa Eilhart",
+  "mailNickname": "pEilhart",
+  "userPrincipalName": "peilhart@contoso.HugoTennant.onmicrosoft.com",
+  "passwordProfile" : {
+    "forceChangePasswordNextSignIn": true,
+    "password": "xWwvJ]6NMw+bWH-d"
+  }
+}
+"@
+
+$request = @{
+    Method = "Post"
+    Uri = "https://graph.microsoft.com/v1.0/users"
+    ContentType = "application/json"
+    Headers = @{Authorization = "Bearer $($TokenResponce.access_token)"}
+    Body = $userBody
+}
+
+$user = Invoke-RestMethod @request
+
+
+#look into invoke web request
